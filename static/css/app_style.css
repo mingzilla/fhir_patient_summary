@@ -784,11 +784,14 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Full width, deliberately. A `max-width` in `ch` keeps a paragraph to a comfortable measure
+ * on a narrow page and does the opposite on a wide one: these panels are over a thousand
+ * pixels across, so a cap that suits a column of prose left each standfirst occupying half the
+ * box it is the introduction to. */
 .panel-card__standfirst {
   font-size: 13px;
   color: var(--text-secondary);
   margin: 0 0 16px;
-  max-width: 88ch;
 }
 
 .panel-card__note {

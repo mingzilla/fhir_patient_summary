@@ -72,6 +72,24 @@ sequenceDiagram
     U -->> C: their row, and the patient drawn
 ```
 
+## UI Design
+
+The screen is derived from the data: the resource inventory decided what could be shown, and each
+panel's wire shape decided how.
+
+```mermaid
+flowchart RL
+    D["store<br/>the API's rows"] --> S["dashboard_service"]
+    S --> R["domains/<br/>one class per wire row"]
+    R --> C["component/<br/>one renderer per panel"]
+    C --> P[the page]
+```
+
+| | |
+|---|---|
+| **DDD** | a panel is a domain object rendered, not an index into JSON - and a field keeps one name from SQL through the wire to the component |
+| **BEM** | `block__element--modifier`, e.g. `patient-search__input`. A block never styles another block's elements, so a panel moves or disappears without a stylesheet change |
+
 ## Full Analytical Procedure
 
 [full_analytical_procedure.md](data_analysis/full_analytical_procedure.md)
