@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient summary</title>
+  <link rel="stylesheet" href="/css/app_style.css">
+</head>
+<body>
+  <!--
+    A fixed shell: the top bar and the left column never move, and the panel pane is the only
+    thing that scrolls. The patient list is the one control every panel is scoped to, and a
+    control that scrolls away has to be found again on every panel.
+
+    `100dvh` rather than `100vh` because a phone browser shrinks the viewport as its address
+    bar appears, and `vh` would put the bottom of the pane off-screen.
+  -->
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="top-bar__brand">
+        <button type="button" class="top-bar__menu" id="drawer-open"
+                aria-controls="drawer" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+          <span class="visually-hidden">Patients and settings</span>
+        </button>
+        <span class="top-bar__wordmark">Patient summary</span>
+      </div>
+      <div class="figure-strip-host" id="figure-strip-host"></div>
+    </header>
+
+    <div class="app-body">
+      <!-- The patient list, in the column on a wide screen and in the drawer on a phone.
+           Two boxes, one builder; CSS decides which is on screen. -->
+      <nav class="rail-host" id="rail-host" aria-label="Patients">
+        <div id="search-rail"></div>
+        <div class="patient-picker" id="picker-rail"></div>
+      </nav>
+      <!-- Not `aria-live`: the pane is replaced wholesale on a patient switch, so a live
+           region here would read the entire record aloud on every click. -->
+      <main class="panel-pane" id="panel-pane"></main>
+    </div>
+  </div>
+
+  <div class="drawer-scrim" id="drawer-scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="Patients and settings" aria-hidden="true">
+    <div class="drawer__patients">
+      <div id="search-drawer"></div>
+      <nav class="patient-picker" id="picker-drawer" aria-label="Patients"></nav>
+    </div>
+    <div class="drawer__foot" id="drawer-foot"></div>
+  </aside>
+
+  <script src="/vendor/echarts.min.js"></script>
+  <script type="module" src="/js/app_entry.js"></script>
+</body>
+</html>

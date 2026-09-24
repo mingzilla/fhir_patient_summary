@@ -1,0 +1,13 @@
+|        Resource        | Rows |  Class   |
+|------------------------|-----:|----------|
+| observation            | 365  | clinical |
+| claim                  | 44   | billing  |
+| diagnostic_report      | 33   | clinical |
+| encounter              | 32   | clinical |
+| explanation_of_benefit | 32   | billing  |
+| medication_request     | 12   | clinical |
+| immunization           | 11   | clinical |
+| procedure              | 11   | clinical |
+| condition              | 9    | clinical |
+| care_plan              | 5    | clinical |
+| goal                   | 5    | clinical |

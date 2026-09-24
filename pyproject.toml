@@ -1,0 +1,33 @@
+[project]
+name = "fhir-patient-summary"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "aiohttp>=3.14.3",
+    "aiosqlite>=0.22.1",
+    "cryptography>=50.0.1",
+    "duckdb>=1.5.5",
+    "fastapi>=0.141.1",
+    "pydantic-settings>=2.15.0",
+    "redis>=8.1.0",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[dependency-groups]
+dev = [
+    "duckdb>=1.5.5",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-playwright>=0.9.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# The browser suite is deselected by default: it needs chromium's system libraries, which
+# are not a Python dependency and may be absent. `uv run pytest -m e2e` runs it, and it
+# skips with the install command rather than failing the unit suite. See tests/e2e/.
+addopts = "-m 'not e2e'"
+markers = [
+    "e2e: browser tests for the rendered UI. Deselected by default; run with -m e2e.",
+]

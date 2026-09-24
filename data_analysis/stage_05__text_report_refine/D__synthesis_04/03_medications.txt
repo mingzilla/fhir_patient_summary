@@ -1,0 +1,6 @@
+|  Ordered   |                     Medication                     | Status  | Gap (days) | Course | Source |
+|------------|----------------------------------------------------|---------|-----------:|--------|--------|
+| 2019-02-05 | predniSONE 5 MG Oral Tablet                        | stopped | NULL       | first  | 12303  |
+| 2014-03-15 | Loratadine 5 MG Chewable Tablet                    | active  | NULL       | first  | 12194  |
+| 2014-03-15 | NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector | active  | NULL       | first  | 12196  |
+_No renewal pattern: every order is a first._

@@ -1,0 +1,14 @@
+|  Ordered   |                            Medication                            | Status  | Gap (days) | Course | Source |
+|------------|------------------------------------------------------------------|---------|-----------:|--------|--------|
+| 2018-03-18 | Galantamine 4 MG Oral Tablet                                     | active  | NULL       | first  | 1611   |
+| 2016-06-24 | Meperidine Hydrochloride 50 MG Oral Tablet                       | stopped | NULL       | first  | 1560   |
+| 2016-06-24 | Ibuprofen 200 MG Oral Tablet                                     | stopped | NULL       | first  | 1562   |
+| 2015-01-04 | Clopidogrel 75 MG Oral Tablet                                    | stopped | NULL       | first  | 1518   |
+| 2015-01-04 | Alteplase 100 MG Injection                                       | stopped | NULL       | first  | 1520   |
+| 2009-11-28 | Acetaminophen 325 MG / HYDROcodone Bitartrate 7.5 MG Oral Tablet | stopped | NULL       | first  | 1424   |
+| 2009-11-28 | Acetaminophen 325 MG Oral Tablet                                 | stopped | NULL       | first  | 1426   |
+| 1995-11-12 | Alendronic acid 10 MG Oral Tablet                                | active  | NULL       | first  | 1415   |
+| 1993-10-31 | Verapamil Hydrochloride 40 MG                                    | active  | NULL       | first  | 1405   |
+| 1993-10-31 | Digoxin 0.125 MG Oral Tablet                                     | active  | NULL       | first  | 1407   |
+| 1993-10-31 | Warfarin Sodium 5 MG Oral Tablet                                 | active  | NULL       | first  | 1409   |
+_No renewal pattern: every order is a first._

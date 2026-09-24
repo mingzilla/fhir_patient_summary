@@ -1,0 +1,11 @@
+|  Code   |                      Measurement                      | Latest |  Unit  | Previous |       Change        |  Why it matters  | Source | Source (prev) |
+|---------|-------------------------------------------------------|-------:|--------|---------:|---------------------|------------------|--------|---------------|
+| 38483-4 | Creatinine                                            | 1.03   | mg/dL  | 3.11     | falling from 3.11   | kidney           | 2184   | 2152          |
+| 39156-5 | Body Mass Index                                       | 27.37  | kg/m2  | 27.37    | steady              | weight           | 2180   | 2127          |
+| 4548-4  | Hemoglobin A1c/Hemoglobin.total in Blood              | 6.36   | %      | 6.11     | rising from 6.11    | diabetes control | 2191   | 2138          |
+| 8462-4  | Diastolic Blood Pressure                              | 76.08  | mm[Hg] | 72.29    | rising from 72.29   | blood pressure   | 2181   | 2128          |
+| 8480-6  | Systolic Blood Pressure                               | 129.48 | mm[Hg] | 129.16   | rising from 129.16  | blood pressure   | 2181   | 2128          |
+| 18262-6 | Low Density Lipoprotein Cholesterol                   | 107.75 | mg/dL  | 110.72   | falling from 110.72 | cholesterol      | 2168   | 2115          |
+| 2085-9  | High Density Lipoprotein Cholesterol                  | 70.75  | mg/dL  | 53.14    | rising from 53.14   | cholesterol      | 2169   | 2116          |
+| 2093-3  | Total Cholesterol                                     | 183.29 | mg/dL  | 181.21   | rising from 181.21  | cholesterol      | 2166   | 2113          |
+| 2857-1  | Prostate specific Ag [Mass/volume] in Serum or Plasma | 5.14   | ng/mL  | 0.72     | rising from 0.72    | prostate         | 2008   | 1950          |

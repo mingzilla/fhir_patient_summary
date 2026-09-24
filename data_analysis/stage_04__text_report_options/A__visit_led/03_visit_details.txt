@@ -1,0 +1,78 @@
+|    Date    |               Visit                |     Kind     |                               What                               |
+|------------|------------------------------------|--------------|------------------------------------------------------------------|
+| 2005-05-25 | Death Certification                | report       | U.S. standard certificate of death - 2003 revision               |
+| 2004-10-12 | Encounter for 'check-up'           | procedure    | Colonoscopy                                                      |
+| 2004-06-16 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 2004-06-16 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 2004-05-20 | Follow-up encounter                | prescription | Simvistatin 10 MG (active)                                       |
+| 2004-05-20 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 2004-05-20 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 2004-02-10 | Encounter for symptom              | problem      | Acute viral pharyngitis (disorder) (resolved)                    |
+| 2003-06-11 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 2003-06-11 | Encounter for check up (procedure) | procedure    | Documentation of current medications                             |
+| 2003-06-11 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 2003-05-21 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 2003-05-21 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 2003-05-21 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 2003-04-05 | Encounter for symptom              | problem      | Acute viral pharyngitis (disorder) (resolved)                    |
+| 2002-06-05 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 2002-06-05 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 2002-06-05 | Encounter for check up (procedure) | report       | Complete blood count (hemogram) panel - Blood by Automated count |
+| 2002-06-05 | Encounter for check up (procedure) | report       | Lipid Panel                                                      |
+| 2002-05-21 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 2002-05-21 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 2002-05-21 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 2001-05-30 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 2001-05-30 | Encounter for check up (procedure) | immunisation | pneumococcal polysaccharide vaccine, 23 valent                   |
+| 2001-05-30 | Encounter for check up (procedure) | procedure    | Digital examination of rectum                                    |
+| 2001-05-30 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 2001-05-24 | Encounter for problem              | problem      | Metastasis from malignant tumor of prostate (disorder) (active)  |
+| 2001-05-24 | Encounter for problem              | problem      | Neoplasm of prostate (active)                                    |
+| 2001-05-24 | Encounter for symptom              | procedure    | Biopsy of prostate                                               |
+| 2001-05-21 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 2001-05-21 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 2001-05-21 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 2000-06-05 | Encounter for symptom              | prescription | Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet (stopped)    |
+| 2000-06-05 | Encounter for symptom              | problem      | Viral sinusitis (disorder) (resolved)                            |
+| 2000-05-24 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 2000-05-24 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 2000-05-21 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 2000-05-21 | Follow-up encounter                | procedure    | Digital examination of rectum                                    |
+| 2000-05-21 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 2000-05-21 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 1999-10-14 | Encounter for 'check-up'           | procedure    | Colonoscopy                                                      |
+| 1999-05-22 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 1999-05-22 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 1999-05-22 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 1999-05-19 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 1999-05-19 | Encounter for check up (procedure) | procedure    | Digital examination of rectum                                    |
+| 1999-05-19 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 1999-05-19 | Encounter for check up (procedure) | report       | Lipid Panel                                                      |
+| 1998-05-22 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 1998-05-22 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 1998-05-22 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 1998-05-13 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 1998-05-13 | Encounter for check up (procedure) | procedure    | Digital examination of rectum                                    |
+| 1998-05-13 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 1997-05-22 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 1997-05-22 | Follow-up encounter                | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 1997-05-22 | Follow-up encounter                | report       | Lipid Panel                                                      |
+| 1997-05-07 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 1997-05-07 | Encounter for check up (procedure) | procedure    | Digital examination of rectum                                    |
+| 1997-05-07 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 1997-05-07 | Encounter for check up (procedure) | report       | Complete blood count (hemogram) panel - Blood by Automated count |
+| 1996-05-22 | Follow-up encounter                | prescription | Simvistatin 10 MG (stopped)                                      |
+| 1996-05-01 | Encounter for check up (procedure) | immunisation | Influenza, seasonal, injectable, preservative free               |
+| 1996-05-01 | Encounter for check up (procedure) | immunisation | Td (adult) preservative free                                     |
+| 1996-05-01 | Encounter for check up (procedure) | problem      | Hyperlipidemia (active)                                          |
+| 1996-05-01 | Encounter for check up (procedure) | procedure    | Digital examination of rectum                                    |
+| 1996-05-01 | Encounter for check up (procedure) | procedure    | Documentation of current medications                             |
+| 1996-05-01 | Encounter for check up (procedure) | report       | Basic Metabolic Panel                                            |
+| 1996-05-01 | Encounter for check up (procedure) | report       | Comprehensive metabolic 2000 panel - Serum or Plasma             |
+| 1996-05-01 | Encounter for check up (procedure) | report       | Lipid Panel                                                      |
+| 1996-05-01 | Encounter for check up (procedure) | report       | Lipid Panel                                                      |
+| 1984-10-17 | Encounter for problem              | prescription | ferrous sulfate 325 MG Oral Tablet (active)                      |
+| 1984-10-17 | Encounter for 'check-up'           | problem      | Anemia (disorder) (active)                                       |
+| 1977-07-27 | Encounter for check up (procedure) | problem      | Prediabetes (active)                                             |
+| 1969-01-01 | Encounter for check up (procedure) | problem      | Smokes tobacco daily (active)                                    |
+| 1965-12-29 | Encounter for check up (procedure) | prescription | 24hr nicotine transdermal patch (active)                         |

@@ -1,0 +1,1113 @@
+/*
+ * Tokens, then the shell, then the blocks inside the panel pane.
+ *
+ * The page is a fixed shell: the top bar and the left column never move and the panel pane is
+ * the only thing that scrolls. That is what keeps the patient selector in the reader's eye
+ * while the record moves past it - the selector is the one control every panel is scoped to,
+ * and a filter that scrolls away is a filter that has to be found again on every panel.
+ *
+ * Dark is the default and light the alternative; light is declared twice, once for the
+ * operating system's preference and once for the page's toggle, so the toggle wins in both
+ * directions without either scope needing the other to be absent.
+ *
+ * Colours are roles, never hues: a chart asks for `--series-1` and never for blue. The chart
+ * layer reads these same custom properties back out of the computed style, so the page and
+ * every canvas in it move together.
+ *
+ * The categorical slots pass the palette validator against these surfaces in both modes
+ * (worst adjacent CVD dE 9.4 dark / 9.2 light). In light mode the aqua slot sits at 2.82:1,
+ * under the 3:1 line, which obliges visible relief - met by a count printed on every bar of
+ * the one chart that uses all three slots, and by a table view on every panel.
+ */
+
+:root {
+  color-scheme: dark;
+
+  --page-plane: #0d0d0f;
+  --surface-1: #17171a;
+  --surface-2: #1f1f23;
+  --surface-3: #28282d;
+
+  --text-primary: #f6f6f4;
+  --text-secondary: #b6b5ae;
+  --text-muted: #82817c;
+
+  --gridline: #2b2b30;
+  --baseline: #3b3b41;
+  --border: rgba(255, 255, 255, 0.09);
+  --wash: rgba(255, 255, 255, 0.055);
+  --scrim: rgba(0, 0, 0, 0.6);
+
+  /* Categorical slots, in the order the palette fixes. Never cycled, never generated. */
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-muted: #82817c;
+
+  /* Reserved for state, never for a series. Always shipped with its own word. */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+
+  --accent-glow: rgba(57, 135, 229, 0.16);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.28);
+  --shadow-drawer: 0 0 60px rgba(0, 0, 0, 0.5);
+
+  --top-bar-height: 64px;
+  --rail-width: 272px;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --gap: 22px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --motion: cubic-bezier(0.22, 0.7, 0.28, 1);
+}
+
+/* The light values, named once. The two rules below are the only things that apply them: the
+ * OS preference for a reader who has not chosen, and the toggle for one who has. */
+:root {
+  --page-plane-light: #f2f2ef;
+  --surface-1-light: #ffffff;
+  --surface-2-light: #f5f5f2;
+  --surface-3-light: #ebebe7;
+  --text-primary-light: #0b0b0b;
+  --text-secondary-light: #52514e;
+  --text-muted-light: #82817c;
+  --gridline-light: #e4e3dd;
+  --baseline-light: #c6c5be;
+  --border-light: rgba(11, 11, 11, 0.10);
+  --wash-light: rgba(11, 11, 11, 0.045);
+  --scrim-light: rgba(11, 11, 11, 0.35);
+  --series-1-light: #2a78d6;
+  --series-2-light: #eb6834;
+  --series-3-light: #1baf7a;
+  --series-muted-light: #82817c;
+  --glow-light: rgba(42, 120, 214, 0.10);
+  --shadow-1-light: 0 1px 2px rgba(11, 11, 11, 0.06), 0 10px 28px rgba(11, 11, 11, 0.07);
+  --shadow-drawer-light: 0 0 50px rgba(11, 11, 11, 0.18);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:where(:not([data-theme="dark"])) { color-scheme: light; }
+  :root:where(:not([data-theme="dark"])) {
+    --page-plane: var(--page-plane-light);
+    --surface-1: var(--surface-1-light);
+    --surface-2: var(--surface-2-light);
+    --surface-3: var(--surface-3-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --text-muted: var(--text-muted-light);
+    --gridline: var(--gridline-light);
+    --baseline: var(--baseline-light);
+    --border: var(--border-light);
+    --wash: var(--wash-light);
+    --scrim: var(--scrim-light);
+    --series-1: var(--series-1-light);
+    --series-2: var(--series-2-light);
+    --series-3: var(--series-3-light);
+    --series-muted: var(--series-muted-light);
+    --accent-glow: var(--glow-light);
+    --shadow-1: var(--shadow-1-light);
+    --shadow-drawer: var(--shadow-drawer-light);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page-plane: var(--page-plane-light);
+  --surface-1: var(--surface-1-light);
+  --surface-2: var(--surface-2-light);
+  --surface-3: var(--surface-3-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-muted: var(--text-muted-light);
+  --gridline: var(--gridline-light);
+  --baseline: var(--baseline-light);
+  --border: var(--border-light);
+  --wash: var(--wash-light);
+  --scrim: var(--scrim-light);
+  --series-1: var(--series-1-light);
+  --series-2: var(--series-2-light);
+  --series-3: var(--series-3-light);
+  --series-muted: var(--series-muted-light);
+  --accent-glow: var(--glow-light);
+  --shadow-1: var(--shadow-1-light);
+  --shadow-drawer: var(--shadow-drawer-light);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 620px at 12% -8%, var(--accent-glow), transparent 62%),
+    var(--page-plane);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ the shell */
+
+.app-shell {
+  display: grid;
+  /* The column is `minmax(0, 1fr)` and not the implicit `auto`: an `auto` column sizes to the
+   * widest content, and the phone figure strip is a nowrap row of five blocks whose intrinsic
+   * width is far wider than a phone. An `auto` column lets that push the whole shell past the
+   * viewport, which clips every card rather than scrolling the strip that caused it. */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: var(--top-bar-height) auto minmax(0, 1fr);
+  height: 100dvh;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: var(--top-bar-height);
+  padding: 0 18px;
+  background: var(--surface-1);
+  border-bottom: 1px solid var(--border);
+  min-width: 0;
+  z-index: 5;
+}
+
+.top-bar__brand { display: flex; align-items: center; gap: 12px; flex: none; }
+
+.top-bar__wordmark {
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.top-bar__menu {
+  display: none;                 /* phone only */
+  width: 36px;
+  height: 36px;
+  font-size: 17px;
+  color: var(--text-secondary);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.top-bar__menu:hover { color: var(--text-primary); }
+
+.top-bar__menu:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+
+/* The body row: the rail and the one scrolling pane. */
+.app-body {
+  display: grid;
+  grid-template-columns: var(--rail-width) minmax(0, 1fr);
+  min-height: 0;
+  min-width: 0;
+}
+
+/* The patient list and the page's own chrome, in the fixed column. */
+.rail-host {
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 16px 14px 24px;
+  border-right: 1px solid var(--border);
+}
+
+.rail-host .site-footer { padding: 0 4px; }
+
+.drawer__patients {
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 16px 14px 4px;
+}
+
+.panel-pane {
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 22px 26px 96px;
+}
+
+.panel-pane__stack {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
+
+/* ------------------------------------------------------- the patient selector */
+
+.patient-picker { min-width: 0; }
+
+.patient-picker__label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.patient-picker__choice {
+  font: inherit;
+  color: var(--text-secondary);
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 160ms var(--motion), color 160ms var(--motion),
+              border-color 160ms var(--motion);
+}
+
+.patient-picker__choice:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+
+/* A column of rows, each one line. A list of a dozen patients is *scanned*, and a three-line
+ * entry turns twelve rows into thirty-six lines to read past. The surname is what is being
+ * looked for, so it carries the weight; the rest sits beside it in recessive ink. */
+.patient-picker--list {
+  display: grid;
+  gap: 1px;
+  align-content: start;
+}
+
+.patient-picker--list .patient-picker__label { padding: 0 4px 8px; }
+
+.patient-picker__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: var(--radius-sm);
+  transition: background 140ms var(--motion);
+}
+
+.patient-picker__row:hover { background: var(--surface-2); }
+
+.patient-picker__row:has(.patient-picker__choice[aria-pressed="true"]) {
+  background: var(--surface-3);
+}
+
+.patient-picker__choice {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-align: left;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  /* Wide enough to clear the marker, on every row, so the names share one left edge whether
+   * or not the row is the current one. */
+  padding: 8px 2px 8px 14px;
+}
+
+.patient-picker__choice[aria-pressed="true"] { color: var(--text-primary); }
+
+/* The current patient is marked by a bar in the margin.
+ *
+ * It is positioned, not laid out: a mark that takes up space would indent one name and leave
+ * the rest of the column ragged, so the reader's eye would have a second thing to track down
+ * a list that exists to be scanned. The highlight is the only thing that moves. */
+.patient-picker__row:has(.patient-picker__choice[aria-pressed="true"])::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--series-1);
+}
+
+.patient-picker__name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-picker__detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.patient-picker__remove {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  margin-right: 3px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  /* Always visible, never hover-only: a control that appears on hover does not exist on a
+   * touch screen, and this one deletes something. */
+  opacity: 0.5;
+  transition: opacity 140ms var(--motion), color 140ms var(--motion);
+}
+
+.patient-picker__row:hover .patient-picker__remove { opacity: 1; }
+
+.patient-picker__remove:hover { color: var(--status-critical); background: var(--surface-3); }
+
+.patient-picker__remove--busy { cursor: progress; animation: search-busy 1.4s ease-in-out infinite; }
+
+.patient-picker__failed {
+  flex: none;
+  font-size: 11px;
+  color: var(--status-critical);
+  max-width: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.patient-picker__remove:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--series-1);
+  outline-offset: 1px;
+}
+
+/* A patient being fetched into the record. Dashed and dimmed so it reads as a row that is not
+ * a row yet - it cannot be opened and cannot be removed, because the patient is not in the
+ * record until the server answers. */
+.patient-picker__row--pending {
+  border: 1px dashed var(--baseline);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  padding: 8px 10px;
+  animation: pending-in 260ms var(--motion) both;
+}
+
+@keyframes pending-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 0.72; transform: none; }
+}
+
+.patient-picker__pending-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-picker__countdown {
+  flex: none;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.patient-picker__empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  padding: 4px 6px 10px;
+}
+
+/* ---------------------------------------------------------------- patient search */
+
+/* The results are an overlay, not a block in the column.
+ *
+ * Inserted in flow they pushed the patient list down the moment a letter was typed, so the
+ * list a reader was aiming at moved as they searched for it. The field is the anchor and the
+ * results float over whatever is below, which is what makes the list a stable target. */
+.patient-search { position: relative; padding: 0 0 12px; }
+
+.patient-search__input {
+  width: 100%;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 11px;
+}
+
+.patient-search__input::placeholder { color: var(--text-muted); }
+
+.patient-search__input:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 1px;
+}
+
+/* `[hidden]` has to be restated: a `display` declaration beats the user-agent rule for the
+ * attribute, so without this the empty result list draws as a thin empty box under the
+ * input on every page load. */
+.patient-search__results[hidden] { display: none; }
+
+/* Fixed, and placed by the component from the field's own rectangle.
+ *
+ * It was `absolute` inside the rail, which put it inside the rail's scroll container: a fixed
+ * `max-height` made it scroll from the seventh result, and raising that height would only have
+ * traded the scrollbar for clipping, because the rail cuts off whatever passes its edge. Being
+ * fixed takes it out of that container entirely, and the height is then the room actually
+ * below the field, so it grows to fit and never overlaps the bottom of the window. */
+.patient-search__results {
+  position: fixed;
+  z-index: 30;
+  display: grid;
+  /* `minmax(0, 1fr)` and not the implicit `auto`. An `auto` column sizes to its widest row's
+   * max-content, and a row holds a name and a date in `nowrap` text - so the column grew to
+   * 334px inside a 241px box, and `overflow-y: auto` makes `overflow-x` compute to `auto` too,
+   * which turned that into a horizontal scrollbar. No row was overflowing; the column was. */
+  grid-template-columns: minmax(0, 1fr);
+  /* One pixel between rows, not two. The server caps a search at twenty results, and the
+   * whole point is that a full set fits without a scrollbar inside the dropdown. */
+  gap: 1px;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Opaque, not the page's translucent surface: an overlay a reader can see the list through
+   * is an overlay they will try to read the list through. */
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-1);
+}
+
+.patient-search__row { display: flex; align-items: center; gap: 4px; }
+
+/* The row the keyboard is on. The mouse gets hover from `:hover`; this is the same state
+ * reached without a pointer, and the two must not be able to disagree visibly. */
+.patient-search__row[data-active="true"] .patient-search__open {
+  background: var(--surface-1);
+  color: var(--text-primary);
+}
+
+/* "Nobody matched" and "the search did not run" are different statements, and they look
+ * different here: one is quiet, the other is not. */
+.patient-search__message {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 8px 9px;
+  line-height: 1.35;
+}
+
+.patient-search__failed {
+  flex: none;
+  font-size: 11px;
+  color: var(--status-critical);
+  max-width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* A patient being fetched into the record. It takes fifteen to twenty seconds, so the mark
+ * is a slow pulse rather than a spinner: something is happening, and the page is not broken. */
+.patient-search__add--busy {
+  color: var(--text-muted);
+  background: none;
+  border-color: transparent;
+  cursor: progress;
+  animation: search-busy 1.4s ease-in-out infinite;
+}
+
+@keyframes search-busy {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Tight, because the dropdown has to fit a full result set. The height is set by the `+`
+ * button beside it rather than by this padding - 26px, which is also about the smallest hit
+ * target worth having - so the text can be close to the edges without the row shrinking to
+ * something unclickable. */
+.patient-search__open {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-align: left;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-radius: 7px;
+  padding: 3px 9px;
+  cursor: pointer;
+}
+
+.patient-search__open:hover { background: var(--surface-3); color: var(--text-primary); }
+
+.patient-search__open:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: -2px;
+}
+
+/* Both halves of the row truncate. `min-width: 0` is what lets a flex item shrink below its
+ * content at all, and without it on the detail the pair of them pushed the row wider than the
+ * dropdown - a name and a date that both refuse to shorten simply do not fit. */
+.patient-search__name {
+  font-weight: 600;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-search__detail {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 24px, which sets the row height and is the smallest hit target worth having. Below this the
+ * row shrinks but the button becomes something you have to aim at. */
+.patient-search__add {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-primary);
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.patient-search__add:hover { border-color: var(--series-1); color: var(--series-1); }
+
+.patient-search__add:focus-visible { outline: 2px solid var(--series-1); outline-offset: 1px; }
+
+/* Already on the list. Not a status colour - being listed is not good, bad or urgent, and
+ * the reserved four are for a patient's state, not for this control's. */
+.patient-search__add--done {
+  color: var(--text-muted);
+  background: none;
+  border-color: transparent;
+  cursor: default;
+}
+
+/* -------------------------------------------------------------- the left rail */
+
+.patient-rail { display: grid; gap: 12px; align-content: start; }
+
+.patient-rail__identity {
+  background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.patient-rail__name {
+  font-size: 28px;
+  font-weight: 650;
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.patient-rail__subtitle { font-size: 12px; color: var(--text-secondary); margin: 6px 0 0; }
+
+.patient-rail__figures { display: grid; gap: 8px; }
+
+/* Stacked, not side by side: `29 Dec 1965` is a wide value in a 250px rail, and a two-column
+ * row leaves the label and its note about 80px - enough to wrap `earliest dated event` over
+ * three lines. The rail has height to spend, so the value goes above and the words below it. */
+.patient-rail__figure {
+  display: grid;
+  gap: 1px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 15px 12px;
+  transition: transform 200ms var(--motion), border-color 200ms var(--motion);
+}
+
+.patient-rail__figure:hover { transform: translateX(2px); border-color: var(--series-1); }
+
+.patient-rail__figure-value {
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.patient-rail__figure-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.patient-rail__figure-note { font-size: 12px; color: var(--text-muted); }
+
+.patient-rail__provenance {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  padding-left: 4px;
+}
+
+/* ----------------------------------------------------- the phone figure strip */
+
+/* Inside the top bar, taking whatever width the wordmark leaves. It scrolls sideways rather
+ * than wrapping, which is what lets the bar's height be a constant - a wrapping row would
+ * make the bar grow and shrink as the window changes, and the bar must not move. */
+.figure-strip-host { flex: 1 1 auto; min-width: 0; }
+
+.figure-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 0;
+  scrollbar-width: thin;
+}
+
+.figure-strip__block {
+  flex: none;
+  min-width: 84px;
+  padding: 7px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.figure-strip__block--name { background: var(--surface-3); border-color: var(--series-1); }
+
+.figure-strip__value { font-size: 17px; font-weight: 650; letter-spacing: -0.02em; }
+
+.figure-strip__label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------ chrome at the foot */
+
+.site-footer { display: grid; gap: 10px; padding: 4px; }
+
+.site-info__summary {
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 5px 2px;
+}
+
+.site-info__summary:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+
+.site-info__body {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 6px 0 0;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+
+.theme-toggle {
+  font: inherit;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 15px;
+  cursor: pointer;
+  justify-self: start;
+  transition: background 160ms var(--motion), color 160ms var(--motion);
+}
+
+.theme-toggle:hover { background: var(--surface-2); color: var(--text-primary); }
+
+.theme-toggle:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+
+/* ---------------------------------------------------------------- the panel card */
+
+.panel-card {
+  grid-column: span 12;
+  /* A soft accent wash in the top-left corner, so the cards sit in the page's light rather
+   * than on top of it. It carries no meaning and is the same on every card. */
+  background:
+    radial-gradient(520px 190px at 0% 0%, var(--accent-glow), transparent 72%),
+    var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 26px 24px;
+  box-shadow: var(--shadow-1);
+  animation: panel-in 520ms var(--motion) both;
+  animation-delay: var(--panel-delay, 0ms);
+}
+
+.panel-card[data-span="8"] { grid-column: span 8; }
+.panel-card[data-span="7"] { grid-column: span 7; }
+.panel-card[data-span="5"] { grid-column: span 5; }
+.panel-card[data-span="4"] { grid-column: span 4; }
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.995); }
+  to { opacity: 1; transform: none; }
+}
+
+.panel-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.panel-card__title { font-size: 16px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+
+.panel-card__count {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-card__standfirst {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 16px;
+  max-width: 88ch;
+}
+
+.panel-card__note {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 14px 0 0;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--baseline);
+}
+
+.panel-card__note--absent {
+  color: var(--text-primary);
+  font-weight: 500;
+  border-left-color: var(--series-1);
+}
+
+.panel-card__chart { width: 100%; }
+
+/* A chart host carries the axis band in its own height, so no panel grows a nested scroll. */
+.chart-host { width: 100%; }
+
+.chart-host--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+
+/* ------------------------------------------------------------------ chart legend */
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 12px;
+}
+
+.chart-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.chart-legend__swatch { width: 11px; height: 11px; flex: none; }
+
+.chart-legend__swatch--roundRect { border-radius: 3px; }
+
+/* A marker shape the legend is explaining, drawn as the chart draws it. */
+.chart-legend__swatch--diamond { border-radius: 2px; transform: rotate(45deg) scale(0.92); }
+
+/* -------------------------------------------------------------------- table twin */
+
+.table-drawer { margin-top: 16px; }
+
+.table-drawer__toggle {
+  font: inherit;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background 160ms var(--motion);
+}
+
+.table-drawer__toggle:hover { background: var(--surface-3); color: var(--text-primary); }
+
+.table-drawer__toggle:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+
+.table-drawer__body { margin-top: 14px; overflow-x: auto; }
+
+.panel-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+.panel-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--baseline);
+  padding: 7px 12px 7px 0;
+  white-space: nowrap;
+}
+
+.panel-table td {
+  border-bottom: 1px solid var(--gridline);
+  padding: 7px 12px 7px 0;
+  color: var(--text-primary);
+  vertical-align: top;
+}
+
+.panel-table td.panel-table__number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  padding-right: 20px;
+}
+
+.panel-table__source {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.panel-table__muted { color: var(--text-muted); }
+
+/* ------------------------------------------------------------------ allergy chips */
+
+.allergy-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.allergy-chip {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 15px;
+  min-width: 178px;
+  flex: 1 1 178px;
+  background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+  transition: transform 200ms var(--motion), border-color 200ms var(--motion);
+}
+
+.allergy-chip:hover { transform: translateY(-2px); border-color: var(--series-1); }
+
+/* The status colour never carries the meaning alone: the word is in the chip. */
+.allergy-chip__stripe {
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+.allergy-chip__stripe--critical { background: var(--status-critical); }
+.allergy-chip__stripe--warning { background: var(--status-warning); }
+.allergy-chip__stripe--neutral { background: var(--series-muted); }
+
+.allergy-chip__name { font-size: 14px; font-weight: 600; }
+
+.allergy-chip__meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ------------------------------------------------------------------- measure grid */
+
+.measure-grid {
+  display: grid;
+  /* `min(300px, 100%)` and not a bare `300px`: a 300px minimum cannot shrink, so on a 320px
+   * phone the tiles would push the pane into a sideways scroll. */
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 14px;
+}
+
+.measure-tile {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px 10px;
+  background: linear-gradient(165deg, var(--surface-2), var(--surface-1) 70%);
+  transition: transform 200ms var(--motion), border-color 200ms var(--motion);
+}
+
+.measure-tile:hover { transform: translateY(-2px); border-color: var(--series-1); }
+
+.measure-tile--unmeasured { background: var(--surface-2); border-style: dashed; }
+
+.measure-tile__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.measure-tile__name { font-size: 13px; font-weight: 600; min-width: 0; }
+
+.measure-tile__code {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  /* A LOINC code that wraps reads as two different codes. */
+  white-space: nowrap;
+}
+
+.measure-tile__reading {
+  font-size: 26px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin-top: 3px;
+  line-height: 1.15;
+}
+
+.measure-tile__reading-unit {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 5px;
+  letter-spacing: 0;
+}
+
+.measure-tile__change { font-size: 12px; color: var(--text-secondary); }
+
+.measure-tile__why {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.measure-tile__spark { height: 52px; margin-top: 8px; }
+
+/* ------------------------------------------------------------------- page states */
+
+.panel-pane--refreshing .panel-pane__stack { opacity: 0.5; transition: opacity 160ms var(--motion); }
+
+/* A list the reader emptied is not an error, so it does not wear the error treatment. */
+.panel-pane__empty {
+  margin: 0;
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: var(--surface-1);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.page-frame__error {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--status-critical);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  font-size: 14px;
+  grid-column: 1 / -1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------------- the drawer */
+
+.drawer, .drawer-scrim { display: none; }
+
+/* ------------------------------------------------ narrow: rail becomes a drawer */
+
+@media (max-width: 980px) {
+  .top-bar__menu { display: inline-flex; align-items: center; justify-content: center; }
+
+  .app-body { grid-template-columns: minmax(0, 1fr); }
+  .rail-host { display: none; }
+
+
+  .panel-pane { padding: 16px 14px 80px; }
+  .panel-card { padding: 18px 16px 20px; }
+  .panel-card[data-span] { grid-column: span 12; }
+
+  .drawer {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(86vw, 330px);
+    background: var(--surface-1);
+    border-right: 1px solid var(--border);
+    box-shadow: var(--shadow-drawer);
+    transform: translateX(-100%);
+    transition: transform 240ms var(--motion);
+    z-index: 20;
+    overflow-y: auto;
+  }
+
+  .drawer[data-open="true"] { transform: none; }
+
+  .drawer__foot { padding: 0 16px 20px; }
+
+  .drawer-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: var(--scrim);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 240ms var(--motion);
+    z-index: 19;
+  }
+
+  .drawer-scrim[data-open="true"] { opacity: 1; pointer-events: auto; }
+}
+
+/* The wordmark gives way to the figures on a phone: five blocks need the width more than a
+ * title does, and the drawer and the browser tab both still name the page. */
+@media (max-width: 620px) {
+  .top-bar { gap: 10px; padding: 0 12px; }
+  .top-bar__wordmark { display: none; }
+  .figure-strip__block { min-width: 78px; padding: 6px 10px; }
+  .figure-strip__value { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel-card { animation: none; }
+  .patient-picker__choice, .allergy-chip, .measure-tile, .patient-rail__figure {
+    transition: none;
+  }
+  .patient-picker__choice:hover, .allergy-chip:hover, .measure-tile:hover,
+  .patient-rail__figure:hover { transform: none; }
+  .drawer, .drawer-scrim { transition: none; }
+}

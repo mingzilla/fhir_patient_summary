@@ -1,0 +1,21 @@
+# graft's local graph cache - regenerable, not committed (run `graft build`).
+/graft/
+.idea/
+
+# secrets, and the only durable copy of PHI
+.env
+data/*.db
+data/*.db-wal
+data/*.db-shm
+
+# The deployment compose for one machine. It names paths outside this repo - the shared
+# gateway it joins - so it is not portable and does not belong in the deliverable. The
+# un-suffixed docker-compose.yml is the one that ships.
+docker-compose-mingzilla.yml
+
+# python
+__pycache__/
+*.py[cod]
+.venv_win/
+.venv/
+.pytest_cache/

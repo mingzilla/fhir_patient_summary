@@ -1,0 +1,15 @@
+|   Onset    |  Status  |                       Problem                        | Years |       Outcome       | Source |                         Pair                         |
+|------------|----------|------------------------------------------------------|------:|---------------------|--------|------------------------------------------------------|
+| 2018-03-18 | ACTIVE   | Alzheimer's disease (disorder)                       | 0     | ongoing             | 1597   |                                                      |
+| 1995-11-12 | ACTIVE   | Osteoporosis (disorder)                              | 23    | ongoing             | 1414   |                                                      |
+| 1993-10-31 | ACTIVE   | Atrial Fibrillation                                  | 25    | ongoing             | 1403   | Stroke                                               |
+| 1993-10-31 | ACTIVE   | Stroke                                               | 25    | ongoing             | 1404   | Atrial Fibrillation                                  |
+| 1991-10-20 | ACTIVE   | Body mass index 30+ - obesity (finding)              | 27    | ongoing             | 1399   |                                                      |
+| 1984-02-19 | ACTIVE   | Cardiac Arrest                                       | 34    | ongoing             | 1394   | History of cardiac arrest (situation)                |
+| 1984-02-19 | ACTIVE   | History of cardiac arrest (situation)                | 34    | ongoing             | 1395   | Cardiac Arrest                                       |
+| 2018-12-03 | RESOLVED | Viral sinusitis (disorder)                           | 0     | resolved 2018-12-10 | 1630   |                                                      |
+| 2016-06-24 | RESOLVED | Fracture of forearm                                  | 0     | resolved 2016-08-23 | 1556   | Pathological fracture due to osteoporosis (disorder) |
+| 2016-06-24 | RESOLVED | Pathological fracture due to osteoporosis (disorder) | 0     | resolved 2016-08-23 | 1557   | Fracture of forearm                                  |
+| 2014-04-26 | RESOLVED | Streptococcal sore throat (disorder)                 | 0     | resolved 2014-05-09 | 1512   |                                                      |
+| 2009-11-28 | RESOLVED | Fracture of ankle                                    | 0     | resolved 2009-12-28 | 1420   | Pathological fracture due to osteoporosis (disorder) |
+| 2009-11-28 | RESOLVED | Pathological fracture due to osteoporosis (disorder) | 0     | resolved 2009-12-28 | 1421   | Fracture of ankle                                    |

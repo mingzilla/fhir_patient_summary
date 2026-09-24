@@ -1,0 +1,22 @@
+|    Date    |                Visit                 | Results | Reports |        New problem         | Source |
+|------------|--------------------------------------|--------:|--------:|----------------------------|--------|
+| 2019-02-11 | Encounter for problem                | 0       | 0       |                            | 12307  |
+| 2019-02-05 | Emergency room admission (procedure) | 0       | 0       | Acute allergic reaction    | 12300  |
+| 2018-12-24 | Encounter for check up (procedure)   | 17      | 1       |                            | 12278  |
+| 2018-04-17 | Encounter for symptom                | 0       | 0       | Viral sinusitis (disorder) | 12274  |
+| 2017-12-18 | Encounter for check up (procedure)   | 6       | 0       |                            | 12260  |
+| 2016-12-12 | Encounter for check up (procedure)   | 6       | 0       |                            | 12249  |
+| 2016-06-13 | Encounter for check up (procedure)   | 6       | 0       |                            | 12240  |
+| 2015-12-14 | Encounter for check up (procedure)   | 6       | 0       |                            | 12229  |
+| 2015-06-15 | Encounter for check up (procedure)   | 6       | 0       |                            | 12218  |
+| 2014-12-15 | Encounter for check up (procedure)   | 5       | 0       |                            | 12209  |
+| 2014-06-16 | Encounter for check up (procedure)   | 5       | 0       |                            | 12200  |
+| 2014-03-17 | Encounter for check up (procedure)   | 5       | 0       |                            | 12156  |
+| 2014-03-15 | Encounter for problem                | 15      | 0       |                            | 12169  |
+| 2014-03-03 | Encounter for problem                | 0       | 0       |                            | 12152  |
+| 2013-12-16 | Encounter for check up (procedure)   | 5       | 0       |                            | 12144  |
+| 2013-09-16 | Encounter for check up (procedure)   | 5       | 0       |                            | 12130  |
+| 2013-06-17 | Encounter for check up (procedure)   | 5       | 0       |                            | 12117  |
+| 2013-04-15 | Encounter for check up (procedure)   | 5       | 0       |                            | 12104  |
+| 2013-02-11 | Encounter for check up (procedure)   | 5       | 0       |                            | 12094  |
+| 2013-01-07 | Encounter for check up (procedure)   | 16      | 1       |                            | 12072  |

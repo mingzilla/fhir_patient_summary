@@ -1,0 +1,20 @@
+.git
+.env
+.venv
+__pycache__
+.pytest_cache
+.idea
+graft
+_docs
+# The abandoned build. 2.8 MB of context that nothing copies.
+_previous
+# Every database. The loader builds the one the app reads, at container start, from the FHIR
+# server - so a baked copy would only ever be a stale one, and this is the largest thing in
+# the context by an order of magnitude.
+**/*.duckdb
+db_data/raw
+# dev-only fabricated fixtures. Never in an image: /static is not behind the auth cookie.
+static/fixtures
+data/*.db
+data/*.db-wal
+data/*.db-shm

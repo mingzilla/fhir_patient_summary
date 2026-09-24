@@ -1,0 +1,3 @@
+# The database the loader builds beside its destination, before renaming it over. Only
+# survives a run that was killed outright, but it is a database file and is not wanted.
+*.building-*

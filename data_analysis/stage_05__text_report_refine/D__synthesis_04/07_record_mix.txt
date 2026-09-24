@@ -1,0 +1,14 @@
+|        Resource        | Rows |  Class   |
+|------------------------|-----:|----------|
+| observation            | 118  | clinical |
+| immunization           | 33   | clinical |
+| claim                  | 23   | billing  |
+| encounter              | 20   | clinical |
+| explanation_of_benefit | 20   | billing  |
+| allergy_intolerance    | 8    | clinical |
+| procedure              | 8    | clinical |
+| medication_request     | 3    | clinical |
+| condition              | 2    | clinical |
+| diagnostic_report      | 2    | clinical |
+| care_plan              | 1    | not read |
+| goal                   | 0    | not read |

@@ -1,0 +1,11 @@
+|  Code   |             Measurement              | Latest |  Unit  | Previous |       Change        |  Why it matters  | Source | Source (prev) |
+|---------|--------------------------------------|-------:|--------|---------:|---------------------|------------------|--------|---------------|
+| 39156-5 | Body Mass Index                      | 28.44  | kg/m2  | 27.96    | rising from 27.96   | weight           | 1637   | 1601          |
+| 8462-4  | Diastolic Blood Pressure             | 85.46  | mm[Hg] | 81.89    | rising from 81.89   | blood pressure   | 1638   | 1602          |
+| 8480-6  | Systolic Blood Pressure              | 102.4  | mm[Hg] | 116.55   | falling from 116.55 | blood pressure   | 1638   | 1602          |
+| 18262-6 | Low Density Lipoprotein Cholesterol  | 61.46  | mg/dL  | 80.94    | falling from 80.94  | cholesterol      | 1605   | 1532          |
+| 2085-9  | High Density Lipoprotein Cholesterol | 78.24  | mg/dL  | 61.8     | rising from 61.8    | cholesterol      | 1606   | 1533          |
+| 2093-3  | Total Cholesterol                    | 160.92 | mg/dL  | 169.49   | falling from 169.49 | cholesterol      | 1603   | 1530          |
+| 2857-1  | (not in this record)                 | NULL   |        | NULL     | not measured        | prostate         | NULL   | NULL          |
+| 38483-4 | (not in this record)                 | NULL   |        | NULL     | not measured        | kidney           | NULL   | NULL          |
+| 4548-4  | (not in this record)                 | NULL   |        | NULL     | not measured        | diabetes control | NULL   | NULL          |

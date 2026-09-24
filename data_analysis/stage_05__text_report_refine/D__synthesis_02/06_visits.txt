@@ -1,0 +1,27 @@
+|    Date    |                Visit                 | Results | Reports |                                New problem                                | Source |
+|------------|--------------------------------------|--------:|--------:|---------------------------------------------------------------------------|--------|
+| 2018-12-16 | Encounter for check up (procedure)   | 6       | 0       |                                                                           | 1633   |
+| 2018-12-09 | Outpatient procedure (procedure)     | 0       | 0       |                                                                           | 1625   |
+| 2018-12-03 | Encounter for symptom                | 0       | 0       | Viral sinusitis (disorder)                                                | 1629   |
+| 2018-12-02 | Outpatient procedure (procedure)     | 0       | 0       |                                                                           | 1620   |
+| 2018-03-18 | Encounter for check up (procedure)   | 11      | 1       | Alzheimer's disease (disorder)                                            | 1596   |
+| 2017-03-12 | Encounter for check up (procedure)   | 17      | 1       |                                                                           | 1571   |
+| 2016-08-23 | Encounter for 'check-up'             | 0       | 0       |                                                                           | 1568   |
+| 2016-06-24 | Emergency room admission (procedure) | 0       | 0       | Fracture of forearm; Pathological fracture due to osteoporosis (disorder) | 1555   |
+| 2016-03-06 | Encounter for check up (procedure)   | 6       | 0       |                                                                           | 1544   |
+| 2015-04-07 | Encounter for 'check-up'             | 0       | 0       |                                                                           | 1540   |
+| 2015-03-01 | Encounter for check up (procedure)   | 10      | 1       |                                                                           | 1524   |
+| 2015-01-04 | Emergency Encounter                  | 0       | 0       |                                                                           | 1516   |
+| 2014-04-26 | Encounter for symptom                | 1       | 0       | Streptococcal sore throat (disorder)                                      | 1511   |
+| 2014-02-23 | Encounter for check up (procedure)   | 6       | 0       |                                                                           | 1500   |
+| 2013-02-17 | Encounter for check up (procedure)   | 6       | 0       |                                                                           | 1489   |
+| 2012-02-12 | Encounter for check up (procedure)   | 21      | 2       |                                                                           | 1461   |
+| 2011-02-06 | Encounter for check up (procedure)   | 6       | 0       |                                                                           | 1450   |
+| 2010-04-08 | Encounter for 'check-up'             | 0       | 0       |                                                                           | 1446   |
+| 2010-01-31 | Encounter for check up (procedure)   | 6       | 0       |                                                                           | 1435   |
+| 2009-12-28 | Encounter for 'check-up'             | 0       | 0       |                                                                           | 1432   |
+| 2009-11-28 | Emergency room admission (procedure) | 0       | 0       | Fracture of ankle; Pathological fracture due to osteoporosis (disorder)   | 1419   |
+| 1995-11-12 | Encounter for check up (procedure)   | 0       | 0       | Osteoporosis (disorder)                                                   | 1413   |
+| 1993-10-31 | Encounter for check up (procedure)   | 0       | 0       | Atrial Fibrillation; Stroke                                               | 1402   |
+| 1991-10-20 | Encounter for check up (procedure)   | 0       | 0       | Body mass index 30+ - obesity (finding)                                   | 1398   |
+| 1984-02-19 | Emergency Encounter                  | 0       | 0       | Cardiac Arrest; History of cardiac arrest (situation)                     | 1393   |

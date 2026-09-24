@@ -1,0 +1,11 @@
+|   Onset    |  Status  |                        Problem                         | Years |       Outcome       | Source |                          Pair                          |
+|------------|----------|--------------------------------------------------------|------:|---------------------|--------|--------------------------------------------------------|
+| 2001-05-24 | ACTIVE   | Neoplasm of prostate                                   | 4     | ongoing             | 2021   | Metastasis from malignant tumor of prostate (disorder) |
+| 2001-05-24 | ACTIVE   | Metastasis from malignant tumor of prostate (disorder) | 4     | ongoing             | 2022   | Neoplasm of prostate                                   |
+| 1996-05-01 | ACTIVE   | Hyperlipidemia                                         | 9     | ongoing             | 1680   |                                                        |
+| 1984-10-17 | ACTIVE   | Anemia (disorder)                                      | 21    | ongoing             | 1667   |                                                        |
+| 1977-07-27 | ACTIVE   | Prediabetes                                            | 28    | ongoing             | 1657   |                                                        |
+| 1969-01-01 | ACTIVE   | Smokes tobacco daily                                   | 36    | ongoing             | 1653   |                                                        |
+| 2004-02-10 | RESOLVED | Acute viral pharyngitis (disorder)                     | 0     | resolved 2004-02-17 | 2145   |                                                        |
+| 2003-04-05 | RESOLVED | Acute viral pharyngitis (disorder)                     | 0     | resolved 2003-04-14 | 2092   |                                                        |
+| 2000-06-05 | RESOLVED | Viral sinusitis (disorder)                             | 0     | resolved 2000-06-12 | 1960   |                                                        |

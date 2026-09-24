@@ -1,0 +1,10 @@
+|  Recorded  |         Allergen         | Criticality | Status | Source |
+|------------|--------------------------|-------------|--------|--------|
+| 2014-03-15 | Allergy to mould         | low         | ACTIVE | 12170  |
+| 2014-03-15 | House dust mite allergy  | low         | ACTIVE | 12171  |
+| 2014-03-15 | Dander (animal) allergy  | low         | ACTIVE | 12172  |
+| 2014-03-15 | Allergy to grass pollen  | low         | ACTIVE | 12173  |
+| 2014-03-15 | Allergy to tree pollen   | low         | ACTIVE | 12174  |
+| 2014-03-15 | Allergy to dairy product | low         | ACTIVE | 12175  |
+| 2014-03-15 | Allergy to nut           | low         | ACTIVE | 12176  |
+| 2014-03-15 | Allergy to peanuts       | low         | ACTIVE | 12177  |

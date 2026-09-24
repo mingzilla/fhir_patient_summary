@@ -1,0 +1,9 @@
+|   Onset    |  Status  |              Problem               | Years |       Outcome       | Source | Pair |
+|------------|----------|------------------------------------|------:|---------------------|--------|------|
+| 2009-07-25 | ACTIVE   | Hypertension                       | 8     | ongoing             | 87792  |      |
+| 2016-08-15 | RESOLVED | Viral sinusitis (disorder)         | 0     | resolved 2016-08-22 | 87883  |      |
+| 2015-03-24 | RESOLVED | Acute viral pharyngitis (disorder) | 0     | resolved 2015-04-01 | 87877  |      |
+| 2014-11-26 | RESOLVED | Viral sinusitis (disorder)         | 0     | resolved 2014-12-17 | 87871  |      |
+| 2014-07-07 | RESOLVED | Viral sinusitis (disorder)         | 0     | resolved 2014-07-21 | 87867  |      |
+| 2013-07-28 | RESOLVED | Viral sinusitis (disorder)         | 0     | resolved 2013-08-04 | 87850  |      |
+| 2012-12-02 | RESOLVED | Viral sinusitis (disorder)         | 0     | resolved 2012-12-23 | 87817  |      |

@@ -1,0 +1,13 @@
+|    Date    |               Visit                | Results | Reports |            New problem             | Source |
+|------------|------------------------------------|--------:|--------:|------------------------------------|--------|
+| 2017-07-15 | Encounter for check up (procedure) | 7       | 0       |                                    | 87886  |
+| 2016-08-15 | Encounter for symptom              | 0       | 0       | Viral sinusitis (disorder)         | 87882  |
+| 2015-03-24 | Encounter for symptom              | 1       | 0       | Acute viral pharyngitis (disorder) | 87876  |
+| 2014-11-26 | Encounter for symptom              | 0       | 0       | Viral sinusitis (disorder)         | 87870  |
+| 2014-07-12 | Encounter for check up (procedure) | 7       | 0       |                                    | 87853  |
+| 2014-07-07 | Encounter for symptom              | 0       | 0       | Viral sinusitis (disorder)         | 87866  |
+| 2013-08-03 | Encounter for check up (procedure) | 18      | 1       |                                    | 87822  |
+| 2013-07-28 | Encounter for symptom              | 0       | 0       | Viral sinusitis (disorder)         | 87849  |
+| 2012-12-02 | Encounter for symptom              | 0       | 0       | Viral sinusitis (disorder)         | 87816  |
+| 2010-07-31 | Encounter for check up (procedure) | 7       | 0       |                                    | 87804  |
+| 2009-07-25 | Encounter for check up (procedure) | 6       | 0       | Hypertension                       | 87791  |

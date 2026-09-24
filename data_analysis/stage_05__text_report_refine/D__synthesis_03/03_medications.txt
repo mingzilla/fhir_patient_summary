@@ -1,0 +1,5 @@
+|  Ordered   |                     Medication                      | Status  | Gap (days) |  Course  | Source |
+|------------|-----------------------------------------------------|---------|-----------:|----------|--------|
+| 2014-11-26 | Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet | stopped | 724        | re-order | 87872  |
+| 2012-12-02 | Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet | stopped | NULL       | first    | 87818  |
+| 2009-07-25 | Hydrochlorothiazide 25 MG                           | active  | NULL       | first    | 87799  |

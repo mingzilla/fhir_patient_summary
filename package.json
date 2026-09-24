@@ -1,0 +1,10 @@
+{
+  "name": "fhir-patient-summary",
+  "private": true,
+  "type": "module",
+  "//": "Not a build. This declares ES modules so tests/js can import the browser utils unchanged, and gives the test runner a single command. See README.md for how to run it.",
+  "scripts": {
+    "test": "node --test \"tests/js/**/*.test.js\""
+  },
+  "//test": "A glob, not a directory: on Node 22.23.2 `node --test tests/js/` hands the directory to the CJS loader as an entry point and dies with MODULE_NOT_FOUND before a single test runs. The quoted glob is expanded by node, not the shell."
+}

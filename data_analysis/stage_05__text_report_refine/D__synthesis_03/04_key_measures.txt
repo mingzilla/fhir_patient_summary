@@ -1,0 +1,11 @@
+|  Code   |       Measurement        | Latest |  Unit  | Previous |       Change       |  Why it matters  | Source | Source (prev) |
+|---------|--------------------------|-------:|--------|---------:|--------------------|------------------|--------|---------------|
+| 39156-5 | Body Mass Index          | 24.96  | kg/m2  | 23.54    | rising from 23.54  | weight           | 87890  | 87857         |
+| 8462-4  | Diastolic Blood Pressure | 116.36 | mm[Hg] | 98.85    | rising from 98.85  | blood pressure   | 87891  | 87858         |
+| 8480-6  | Systolic Blood Pressure  | 193.57 | mm[Hg] | 152.44   | rising from 152.44 | blood pressure   | 87891  | 87858         |
+| 18262-6 | (not in this record)     | NULL   |        | NULL     | not measured       | cholesterol      | NULL   | NULL          |
+| 2085-9  | (not in this record)     | NULL   |        | NULL     | not measured       | cholesterol      | NULL   | NULL          |
+| 2093-3  | (not in this record)     | NULL   |        | NULL     | not measured       | cholesterol      | NULL   | NULL          |
+| 2857-1  | (not in this record)     | NULL   |        | NULL     | not measured       | prostate         | NULL   | NULL          |
+| 38483-4 | (not in this record)     | NULL   |        | NULL     | not measured       | kidney           | NULL   | NULL          |
+| 4548-4  | (not in this record)     | NULL   |        | NULL     | not measured       | diabetes control | NULL   | NULL          |

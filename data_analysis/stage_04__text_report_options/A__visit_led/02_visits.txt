@@ -1,0 +1,34 @@
+|    Date    |               Visit                | Results | Reports |                                 New problem                                  |
+|------------|------------------------------------|--------:|--------:|------------------------------------------------------------------------------|
+| 2005-05-25 | Death Certification                | 1       | 1       |                                                                              |
+| 2004-10-12 | Encounter for 'check-up'           | 0       | 0       |                                                                              |
+| 2004-06-16 | Encounter for check up (procedure) | 15      | 1       |                                                                              |
+| 2004-05-20 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 2004-02-10 | Encounter for symptom              | 1       | 0       | Acute viral pharyngitis (disorder)                                           |
+| 2003-06-11 | Encounter for check up (procedure) | 15      | 1       |                                                                              |
+| 2003-05-21 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 2003-04-05 | Encounter for symptom              | 1       | 0       | Acute viral pharyngitis (disorder)                                           |
+| 2002-06-05 | Encounter for check up (procedure) | 30      | 3       |                                                                              |
+| 2002-05-21 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 2001-05-30 | Encounter for check up (procedure) | 16      | 1       |                                                                              |
+| 2001-05-24 | Encounter for symptom              | 1       | 0       |                                                                              |
+| 2001-05-24 | Encounter for problem              | 1       | 0       | Metastasis from malignant tumor of prostate (disorder); Neoplasm of prostate |
+| 2001-05-21 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 2000-06-05 | Encounter for symptom              | 0       | 0       | Viral sinusitis (disorder)                                                   |
+| 2000-05-24 | Encounter for check up (procedure) | 14      | 1       |                                                                              |
+| 2000-05-21 | Follow-up encounter                | 23      | 2       |                                                                              |
+| 1999-10-14 | Encounter for 'check-up'           | 0       | 0       |                                                                              |
+| 1999-05-22 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 1999-05-19 | Encounter for check up (procedure) | 21      | 2       |                                                                              |
+| 1998-05-22 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 1998-05-13 | Encounter for check up (procedure) | 17      | 1       |                                                                              |
+| 1997-05-22 | Follow-up encounter                | 20      | 2       |                                                                              |
+| 1997-05-07 | Encounter for check up (procedure) | 28      | 2       |                                                                              |
+| 1996-05-22 | Follow-up encounter                | 0       | 0       |                                                                              |
+| 1996-05-01 | Encounter for check up (procedure) | 41      | 4       | Hyperlipidemia                                                               |
+| 1995-04-15 | Encounter for symptom              | 0       | 0       |                                                                              |
+| 1984-10-17 | Encounter for 'check-up'           | 0       | 0       | Anemia (disorder)                                                            |
+| 1984-10-17 | Encounter for problem              | 0       | 0       |                                                                              |
+| 1977-07-27 | Encounter for check up (procedure) | 0       | 0       | Prediabetes                                                                  |
+| 1969-01-01 | Encounter for check up (procedure) | 0       | 0       | Smokes tobacco daily                                                         |
+| 1965-12-29 | Encounter for check up (procedure) | 0       | 0       |                                                                              |

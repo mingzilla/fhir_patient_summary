@@ -1,0 +1,4 @@
+|   Onset    |  Status  |          Problem           | Years |       Outcome       | Source | Pair |
+|------------|----------|----------------------------|------:|---------------------|--------|------|
+| 2019-02-05 | RESOLVED | Acute allergic reaction    | 0     | resolved 2019-02-05 | 12301  |      |
+| 2018-04-17 | RESOLVED | Viral sinusitis (disorder) | 0     | resolved 2018-04-24 | 12275  |      |

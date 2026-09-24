@@ -1,0 +1,14 @@
+|  Ordered   |                     Medication                      | Status  | Gap (days) |  Course  | Source |
+|------------|-----------------------------------------------------|---------|-----------:|----------|--------|
+| 2004-05-20 | Simvistatin 10 MG                                   | active  | 365        | re-order | 2170   |
+| 2003-05-21 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 2117   |
+| 2002-05-21 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 2048   |
+| 2001-05-21 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 1986   |
+| 2000-06-05 | Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet | stopped | NULL       | first    | 1961   |
+| 2000-05-21 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 1953   |
+| 1999-05-22 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 1899   |
+| 1998-05-22 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 1844   |
+| 1997-05-22 | Simvistatin 10 MG                                   | stopped | 365        | re-order | 1794   |
+| 1996-05-22 | Simvistatin 10 MG                                   | stopped | NULL       | first    | 1733   |
+| 1984-10-17 | ferrous sulfate 325 MG Oral Tablet                  | active  | NULL       | first    | 1671   |
+| 1965-12-29 | 24hr nicotine transdermal patch                     | active  | NULL       | first    | 1647   |

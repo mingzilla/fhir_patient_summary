@@ -1,0 +1,76 @@
+services:
+  fhir:
+    image: smartonfhir/hapi-5:r4-synthea
+    ports:
+      # The brief's base URL assumes 8080. Override with FHIR_PORT when another
+      # HAPI FHIR server already holds it - as one does on the dev machine.
+      - "${FHIR_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/hapi-fhir-jpaserver/fhir/metadata"]
+      interval: 15s
+      timeout: 5s
+      retries: 40
+      start_period: 180s
+
+  redis:
+    image: redis:7-alpine
+    # No volume on purpose: everything in it is a cache with a 15-minute life,
+    # so persisting it would add a second durable store of raw PHI for nothing.
+    # See _docs/spec/002__design_08__high_level_folder_structure.md
+    #
+    # Published, against `design_08`'s "only the app's port" - because the app also runs
+    # bare on the host (`uv run uvicorn src.main:app`), where `localhost:6379` is the only
+    # address that can reach it. Bound to localhost either way.
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+
+  # Puts a record in the volume the app serves from, so `docker compose up` has something to
+  # show before anything is fetched. The seed is the loader's own output, not a hand-written
+  # copy of it - regenerate with `python3 -m src.ingest_service --dump <db> <init.sql>` after
+  # a fetch that changes the record, or the fixture and the seed drift apart.
+  #
+  # To fetch instead, or to refresh what is there:
+  #   docker compose run --rm loader python db_data/fhir_sample_load.py /data/fhir_sample.duckdb
+  loader:
+    build: .
+    volumes:
+      - fhir_sample_db:/data
+    # Not a service: it runs once and exits, and the app waits for it to have finished.
+    restart: "no"
+    command: ["uv", "run", "--no-dev", "python",
+              "db_data/fhir_sample_load.py",
+              "--seed", "/data/fhir_sample.duckdb",
+              "db_data/init.sql"]
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      # `service_completed_successfully`, not `service_started`: the app must not open the
+      # record before it exists, or every panel answers 404 and looks like a broken build.
+      loader:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+    environment:
+      # Every address names a service. Inside this network, localhost is the app
+      # container itself. See 002__design_08.
+      FHIR_BASE_URL: http://fhir:8080/hapi-fhir-jpaserver/fhir
+      REDIS_URL: redis://redis:6379
+      # Where the loader puts the record. Without this the app looks for it at the repo path,
+      # which is not in the image, and every panel is a 404.
+      FHIR_SAMPLE_DB: /data/fhir_sample.duckdb
+    volumes:
+      - fhir_sample_db:/data
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')\""]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  # The record. Survives `down` and `up`, so a rebuilt image serves the data it already had
+  # rather than seeding again - and `docker compose down -v` is what clears it.
+  fhir_sample_db:
